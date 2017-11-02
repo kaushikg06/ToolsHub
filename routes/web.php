@@ -11,10 +11,18 @@
 |
 */
 
+use App\Articles\ArticlesRepository;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('articles.index', [
+        'articles' => App\Article::all(),
+    ]);
 });
 
-Auth::routes();
+Route::get('/search', function (ArticlesRepository $repository) {
+    $articles = $repository->search((string) request('q'));
 
-Route::get('/home', 'HomeController@index')->name('home');
+    return view('articles.index', [
+    	'articles' => $articles,
+    ]);
+});

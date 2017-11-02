@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Console;
-
+use App\Console\Commands\ReindexCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
 class Kernel extends ConsoleKernel
 {
     /**
@@ -13,9 +11,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        ReindexCommand::class,
     ];
-
     /**
      * Define the application's command schedule.
      *
@@ -27,7 +24,6 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
     }
-
     /**
      * Register the Closure based commands for the application.
      *
@@ -38,3 +34,5 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 }
+
+?>

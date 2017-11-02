@@ -1,2 +1,0 @@
-# ToolsHub
-Capstone Project MSIS
